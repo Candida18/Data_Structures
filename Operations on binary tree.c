@@ -1,7 +1,4 @@
-/*************************************************************************
-NAME: CANDIDA RUTH NORONHA
-CLASS: SE COMPS B
-ROLL NO. : 8960
+/*******************************************************************************************
 TITLE:  Program to create a binary tree and to perform the following operations:
 	1. Insertion (Non recursive)
 	2. Deletion ( Non recursive)
@@ -16,8 +13,7 @@ TITLE:  Program to create a binary tree and to perform the following operations:
 	11. Count leaf nodes (Recursive)
 	12. Calculate height (Recursive)
 	13. Mirror(Recursive)
-SUBMISSION DATE : 02nd October, 2020
-*************************************************************************/
+*******************************************************************************************/
 
 #include<stdio.h>
 #include<stdlib.h>
