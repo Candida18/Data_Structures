@@ -1,4 +1,9 @@
 
+
+/*****************************************************************************************************
+TITLE:  Program to implement Linked List.
+*****************************************************************************************************/
+
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct node
@@ -8,6 +13,7 @@ typedef struct node
     struct node *next;
 
 }Node;
+
 typedef struct
 {
 
@@ -35,9 +41,7 @@ void append(LL *lptr,int x) //insert node at end
     p->next=NULL; //make the node as last node
     if(lptr->start==NULL) //is this a first node?
     {
-
-        lptr->start=p;
-
+        lptr->start=p;//start points to p
     }
     else
     {
@@ -48,35 +52,27 @@ void append(LL *lptr,int x) //insert node at end
             q=q->next;
         }
         q->next=p; //link last node with current node
-
     }
-
 }
 
 void deletenode(LL *lptr,int x)
 {
-
     Node *q;
-     q = lptr->start;
+    q = lptr->start;
     Node *p = NULL;
     while( q != NULL) //search the node
     {
-
         if (q->data == x) //data matches found, break while
-        break;
-        p = q; //if not found, current node becomes previous node
+			break;
+        p = q; //if not found, current node becomes previous node, keeps track of previous node
         q = q->next; //go to next node
-
     }
     if( q == NULL) //if desired node not found
     {
-
         printf("Node with %d data not found\n",x);
-
     }
 
     else //if found
-
     {
 
         if(lptr->start == q) //if node to be deleted is first node
@@ -96,16 +92,13 @@ void deletenode(LL *lptr,int x)
 
 int countnodes(LL l)
 {
-
     int count=0;
     Node *ptr;
     ptr= l.start;
     while(ptr!= NULL)
     {
-
         count++; //increment counter if node exist
         ptr = ptr->next; //go to next node
-
     }
     return count;
 
@@ -113,17 +106,13 @@ int countnodes(LL l)
 
 void concat(LL *lptr1,LL l2)
 {
-
     Node *q;
     if (l2.start == NULL) //l2 is empty
-
-    return;
-
+    	return;
+		
     if(lptr1->start==NULL) //l1 is empty and l2 is Not Empty
     {
-
-        lptr1->start=l2.start;
-
+        lptr1->start=l2.start;//append LL2 to start of LL1
     }
     else
     {
@@ -145,12 +134,9 @@ void display(LL l)
     Node *q;
     q=l.start;
     while(q!=NULL) //until LL gets exhausted
-
     {
-
         printf("%d\n",q->data);
         q=q->next;
-
     }
 
 }
@@ -159,18 +145,16 @@ void reverse(LL *lptr)
 {
 
     Node *q,*r,*p;
-    p=NULL; //previous nod
+    p=NULL; //previous node
     q=lptr->start; //current node
     while(q!=NULL)
     {
-
-    r=q->next; //store next node in r pointer
-    q->next=p; //current node points to previous node
-    p=q; //for next iteration, current node becomes previous
-    q=r; //for next iteration, r node becomes current node
-
+		r=q->next; //store next node in r pointer
+		q->next=p; //current node points to previous node
+		p=q; //for next iteration, current node becomes previous
+		q=r; //for next iteration, r node becomes current node
     }
-lptr->start=p; //modify start so that it points to last node of original LL
+	lptr->start=p; //modify start so that it points to last node of original LL
 
 }
 
