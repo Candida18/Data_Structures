@@ -1,3 +1,6 @@
+/**********************************************************************************************************
+TITLE:  Program to create Queue of Students taking admission in a college using static memory allocation.
+**********************************************************************************************************/
 
 #include<stdio.h>
 #include<stdlib.h>
