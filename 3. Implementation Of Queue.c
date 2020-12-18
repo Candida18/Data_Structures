@@ -1,11 +1,4 @@
-/**********************************************************************************************************
-NAME: CANDIDA RUTH NORONHA
-CLASS: SE COMPS B
-ROLL NO. : 8960
-BATCH: C
-TITLE:  Program to create Queue of Students taking admission in Fr. CRCE using static memory allocation.
-SUBMISSION DATE : 12th August, 2020
-**********************************************************************************************************/
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
