@@ -6,16 +6,19 @@
 #include<stdlib.h>
 #include<string.h>
 #define SIZE 20
+
 typedef struct
 {
 	char a[SIZE];
 	int tos;
 }Stack;
+
 void push (Stack *p,double x)
 {
 	p->tos++;
 	p->a[p->tos]=x;
 }
+
 //Pop Function
 char pop(Stack *p)
 {
@@ -42,31 +45,24 @@ int main()
 			{
 				bracket = pop(&s1);
 				switch(exp[i])
-
 				{
-
 					case ')':
-					if( bracket == '{' || bracket == '[' )
-
-					{
-						printf("\nCorresponding '(' missing");
-
-						exit(0);
-
-					}
-					break;
+						if( bracket == '{' || bracket == '[' )
+						{
+							printf("\nCorresponding '(' missing");
+							exit(0);
+						}
+						break;
+						
 					case ']':
 
-					if( bracket == '{' || bracket == '(' )
-
-					{
-
-						printf("\nCorresponding '[' missing");
-
-						exit(0);
-
-					}
-					break;
+						if( bracket == '{' || bracket == '(' )
+						{
+							printf("\nCorresponding '[' missing");
+							exit(0);
+						}
+						break;
+						
 					case '}':
 
 					if( bracket == '(' || bracket == '[' )
