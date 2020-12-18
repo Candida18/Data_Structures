@@ -1,3 +1,11 @@
+/*************************************************************************
+NAME: CANDIDA NORONHA
+CLASS: SE COMPS B
+ROLL NO. : 8960
+TITLE:  Program to implement Circular Queue of int using static memory allocation.
+SUBMISSION DATE : 11th August, 2020
+*************************************************************************/
+
 #include<stdio.h>
 #include<stdlib.h>
 #define SIZE 3
@@ -6,6 +14,7 @@ typedef struct
 int a[SIZE]; //Queue of integers
 int front,rear;
 }CQueue;
+
 void cenqueue(CQueue *p,int x) //insert element in queue at rear end
 {
     if (isFull(p))//if queue is full
@@ -17,7 +26,7 @@ void cenqueue(CQueue *p,int x) //insert element in queue at rear end
         p->rear = (p->rear+1) % SIZE ;//increment rear
         p->a[p->rear]=x; //put the element at rear index
         if( p->front == -1) //if first element inserted in queue
-        p->front = 0;
+			p->front = 0;
     }
 }
 
@@ -33,12 +42,13 @@ int cdequeue( CQueue *p)
     {
         x=p -> a[ p->front ]; //take element at front index and store it in local variable
         if( p->front == p->rear) //last element deleted from queue
-        p->front = p->rear = -1; //go back to in?al pos?on
+			p->front = p->rear = -1; //go back to intial postion
         else
-        p->front = (p->front+1) % SIZE; //increment front
+			p->front = (p->front+1) % SIZE; //increment front
         return x; //return element
     }
 }
+
 void display(CQueue q)
 {
     int i;
@@ -52,6 +62,8 @@ void display(CQueue q)
     printf("\t%d",q.a[i]);
     }
 }
+
+//isEmpty method 
 int isEmpty(CQueue q)
 {
     if (q.front == -1) //initial queue
@@ -60,13 +72,15 @@ int isEmpty(CQueue q)
         return 0;
 }
 
+//isFull method
 int isFull(CQueue q)
 {
-if ((q.rear+1)%SIZE == q.front )
+if ((q.rear+1)%SIZE == q.front )//condition for circular queue
     return 1;
 else
     return 0;
 }
+
 int main()
 {
     CQueue q1;
@@ -167,3 +181,5 @@ n
 Process returned 0
 
 *************************************************************************/
+
+
