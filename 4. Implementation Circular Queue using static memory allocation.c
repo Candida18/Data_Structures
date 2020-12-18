@@ -1,10 +1,3 @@
-/*************************************************************************
-NAME: CANDIDA NORONHA
-CLASS: SE COMPS B
-ROLL NO. : 8960
-TITLE:  Program to implement Circular Queue of int using static memory allocation.
-SUBMISSION DATE : 11th August, 2020
-*************************************************************************/
 
 #include<stdio.h>
 #include<stdlib.h>
