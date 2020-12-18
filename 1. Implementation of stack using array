@@ -6,59 +6,64 @@
 //Structure declaration
 typedef struct
 {
-float a[SIZE]; //stack of floats
-int tos;
+	float a[SIZE]; //stack of floats
+	int tos;
 }Stack;
+
 int isEmpty(Stack *p)
 {
-
-    if ((p->tos)== -1)
+    if ((p->tos)== -1)//checks if stack is empty
         return (1);
     else
         return (0);
 }
+
 int isFull(Stack *p)
 {
-    if ((p->tos)==SIZE-1)
+    if ((p->tos)==SIZE-1)//checks if stack is full
         return (1);
     else
         return (0);
 
 }
+
 //Push Function
 void push (Stack *p, float x)
 {
-    if (isFull(p))
+    if (isFull(p))//if stack is full
     {
         printf("Stack is overflown\n");
         exit(1);
     }
     else
     {
-        p->tos++;
+        p->tos++;//increment tos
         printf("The pushed element is %f\n",x);
-        p->a[p->tos]=x;
+        p->a[p->tos]=x;//adding element to the top of the stack
     }
 }
+
 //Pop Function
 float pop(Stack *p)
 {
-    if (isEmpty(p))
+    if (isEmpty(p))//if stack is full
     {
         printf("Stack is empty\n");
         exit(1);
     }
     else
     {
-    return(p->a[p->tos--]);
+		return(p->a[p->tos--]);//removing element from the top of the stack
     }
 }
+
 //Peek function
 float peek(Stack s)
 {
     return s.a[s.tos]; //return top element of stack
 
 }
+
 //Display function
 void display(Stack s)
 {
@@ -68,13 +73,15 @@ void display(Stack s)
         printf("%f\t",s.a[i]);
     }
 }
+
 //No.of elements in the stack
 int size(Stack *p)
 {
-   printf("%d",p->tos+1);
+   printf("%d",p->tos+1);//index of top of the stack + 1
 }
-//Main starts
 
+
+//Main starts
 int main()
 {
 Stack s1; //s1 is variable of type stack
@@ -82,38 +89,37 @@ float x,data;
 int option;
 
 s1.tos = -1; //top of stack initialized to -1
-do
-{
-    printf("\nEnter the choice 1.Push 2.Pop 3.Peek 4.Display 5.No.of elements in the stack\n");
-    scanf("%d",&option);
+	do
+	{
+		printf("\nEnter the choice 1.Push 2.Pop 3.Peek 4.Display 5.No.of elements in the stack\n");
+		scanf("%d",&option);
 
-switch(option)
-{
-case 1:
-    printf("Enter the element to push\n");
-    scanf("%f",&x);
-    push(&s1,x);
-    break;
-case 2:
-    data = pop(&s1);
-    printf("\nThe popped element is %f\n",data);
-    break;
-case 3:
-    printf("The top element is %f\n",peek(s1));
-    break;
-case 4:
-    printf("\nThe stack contents are :\n");
-    display(s1);
-    break;
-case 5:
-    printf("\nNo. of elements in the stack:\n");
-    size(&s1);
-    break;
-case 6:
-    exit(0); //exit from program with exit status 0
+		switch(option)
+		{
+			case 1:
+				printf("Enter the element to push\n");
+				scanf("%f",&x);
+				push(&s1,x);
+				break;
+			case 2:
+				data = pop(&s1);
+				printf("\nThe popped element is %f\n",data);
+				break;
+			case 3:
+				printf("The top element is %f\n",peek(s1));
+				break;
+			case 4:
+				printf("\nThe stack contents are :\n");
+				display(s1);
+				break;
+			case 5:
+				printf("\nNo. of elements in the stack:\n");
+				size(&s1);
+				break;
+			case 6:
+				exit(0); //exit from program with exit status 0
 
-}
-}while(1);
- //while always true
-return 0;
+		}
+	}while(1);//while always true
+	return 0;
 }
