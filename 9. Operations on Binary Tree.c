@@ -1,4 +1,5 @@
-/*******************************************************************************************
+/*************************************************************************
+
 TITLE:  Program to create a binary tree and to perform the following operations:
 	1. Insertion (Non recursive)
 	2. Deletion ( Non recursive)
@@ -13,7 +14,8 @@ TITLE:  Program to create a binary tree and to perform the following operations:
 	11. Count leaf nodes (Recursive)
 	12. Calculate height (Recursive)
 	13. Mirror(Recursive)
-*******************************************************************************************/
+
+*************************************************************************/
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -44,20 +46,20 @@ void insert(Tree *tr,int x)//insert into tree a new node with data x
 
     {
 
-    struct tnode *q=tr->root;
-    while(q!=NULL) // if node is there
-    {
-    prev=q; //make that node as parent
-    if(p->data < q->data) //update q
-    q=q->left;
-    else
-    q=q->right;
-    }
-    //a new node p is inserted after prev node
-    if(p->data >= prev->data)
-        prev->right=p; //if data is greater in p, attach p as parent's(prev) right son
-    else
-        prev->left=p;//if data is smaller in p, attach p as parent's(prev) left son
+		struct tnode *q=tr->root;
+		while(q!=NULL) // if node is there
+		{
+			prev=q; //make that node as parent
+			if(p->data < q->data) //update q
+				q=q->left;
+			else
+				q=q->right;
+		}
+		//a new node p is inserted after prev node
+		if(p->data >= prev->data)
+			prev->right=p; //if data is greater in p, attach p as parent's(prev) right son
+		else
+			prev->left=p;//if data is smaller in p, attach p as parent's(prev) left son
 
     }
 
@@ -72,49 +74,53 @@ void delete(Tree *tr,int x)
     while(p!=NULL) //search the data x
     {
 
-        if(p->data==x)
-        break;
+        if(p->data==x)//if data is found
+			break;
         prev=p; //keep track of parent of p
         if(x < p->data)
-            p=p->left;
+            p=p->left;//
         else
             p=p->right;
 
     }
     if(p==NULL)
 
-    printf("Data not found\n");
+		printf("Data not found\n");
 
     else
     {
 
-    if( p->left == NULL || p->right == NULL) //case 1 or case 2
-        q = p; //q is node to be deleted
-    else //case 3
-    {
-        prev = p; //inorder successor parent
-        q = p->right; //currently right son is inorder sucessor
-        while ( q->left != NULL) // if le? son present
-        {
-            prev = q; //parent of r
-            q= q->left;
-        }
-    p->data = q->data; //copy q node data to p node data
-    }
-    //in the following part, q node is deleted
-    //q is replaced by node r
-    if( q->left == NULL) //in case 1, r is NULL
-        r = q->right;
-    else
-        r = q->left;
-    if(prev==NULL) // q is root node, then no parent to it
-        tr->root = r; //root is r
-    else if(prev->left==q) //q is left son of its parent, r becomes left son replacing q
-        prev->left = r;
-    else //q is right son of its parent, r becomes right son replacing q
-        prev->right = r;
-    free(q);
-    printf("\n Data deleted\n");
+		if( p->left == NULL || p->right == NULL) //case 1 or case 2
+			q = p; //q is node to be deleted
+		else //case 3
+		{
+			prev = p; //inorder successor parent
+			q = p->right; //currently right son is inorder sucessor
+			while ( q->left != NULL) // if left son present
+			{
+				prev = q; //parent of r
+				q= q->left;
+			}
+		p->data = q->data; //copy q node data to p node data
+		}
+		//in the following part, q node is deleted
+		//q is replaced by node r
+		if( q->left == NULL) //in case 1, r is NULL
+			r = q->right;
+		else
+			r = q->left;
+		
+		if(prev==NULL) // q is root node, then no parent to it
+			tr->root = r; //root is r
+			
+		else if(prev->left==q) //q is left son of its parent, r becomes left son replacing q
+			prev->left = r;
+			
+		else //q is right son of its parent, r becomes right son replacing q
+			prev->right = r;
+			
+		free(q);
+		printf("\n Data deleted\n");
 
     }
 
@@ -272,8 +278,8 @@ int main()
     printf(" 5.Display in postorder fashion\n");
     printf(" 6.Display the smallest element in the binary tree\n");
     printf(" 7.Display the largest element in the binary tree\n");
-    printf(" 8. Search for an element in the tree iteratively\n");
-    printf(" 9. Search for an element in the tree recursively\n");
+    printf(" 8.Search for an element in the tree iteratively\n");
+    printf(" 9.Search for an element in the tree recursively\n");
     printf(" 10.Count number of nodes\n");
     printf(" 11.Count the number of leaf nodes\n");
     printf(" 12.Calculate height of the binary tree\n");
