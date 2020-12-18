@@ -1,3 +1,6 @@
+/**********************************************************************************
+TITLE:  Program to implement Circular Queue of int using static memory allocation.
+**********************************************************************************/
 
 #include<stdio.h>
 #include<stdlib.h>
